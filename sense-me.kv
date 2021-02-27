@@ -17,6 +17,7 @@ SenseMe:
             id: appLabel
             halign: 'center'
             color: 0,0,0,1
+            padding:[80,30]
             size_hint_y: None
             size: self.texture_size
             text: app.name.capitalize()
@@ -24,29 +25,31 @@ SenseMe:
         GridLayout:
             cols:2
             rows:2
-            padding:[280,300]
+            padding:[0,30,100,30]
             Label:
                 id: userLabel
                 color: 0,0,0,1
-                size_hint: (.4, None)
+                size_hint: (.25, None)
                 text: "Username: "
 
             TextInput:
                 id: userInput
                 color: 0,0,0,1
-                size_hint: (.4,None)
+                height: self.minimum_height*2
+                size_hint: (.5,None)
                 width: 0.5
 
             Label:
                 id: passLabel
                 color: 0,0,0,1
-                size_hint: (.4, None)
+                size_hint: (.25, None)
                 text: "Password: "
         
             TextInput:
                 id: passInput
                 color: 0,0,0,1
-                size_hint: (.4,None)
+                height: self.minimum_height*2
+                size_hint: (.5,None)
                 width: 0.5
 
         Button:
