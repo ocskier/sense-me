@@ -9,7 +9,7 @@ verify_ssl = true
 kivy = "*"
 
 [requires]
-python_version = "3.9"
+python_version = "3.8.5"
 
 [scripts]
 start="pipenv run python main.py"
