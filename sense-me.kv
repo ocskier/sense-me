@@ -1,17 +1,41 @@
 #:kivy 1.0.9
+#:import hex kivy.utils.get_color_from_hex
 SenseMe:
     LoginPage:
     UserPage:
 
 <LoginPage>
-    BoxLayout:
+    rows:4
+    canvas:
+        Color:
+            rgba: hex('#CCFFCC')
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    AnchorLayout:
+        anchor_x: "center"
+        anchor_y: "top"
+        Label:
+            id: userLabel
+            color: 0,0,0,1
+            size_hint: (None, None)
+            size: self.texture_size
+            text: app.name.capitalize()
+
+    AnchorLayout:
+        anchor_x: "right"
+        anchor_y: "center"
         TextInput:
             id: login
-        TextInput:
-            id: passw
-        Button:
-            text: "go"
-            on_release: app.root.current = 'user'
+            color: 0,0,0,1
+            size_hint: (None, None)
+            # size: self.texture_size
+        # TextInput:
+        #     id: passw
+        # Button:
+        #     text: "go"
+        #     on_release: app.root.current = 'user'
 
 <UserPage>
     Button:
