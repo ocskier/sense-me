@@ -36,6 +36,7 @@ SenseMe:
                 id: userInput
                 color: 0,0,0,1
                 height: self.minimum_height*2
+                multiline: False
                 size_hint: (.5,None)
                 width: 0.5
 
@@ -49,13 +50,14 @@ SenseMe:
                 id: passInput
                 color: 0,0,0,1
                 height: self.minimum_height*2
+                multiline: False
                 size_hint: (.5,None)
                 width: 0.5
 
         Button:
             size_hint_y: None
             text: "go"
-            on_release: app.root.current = 'user'
+            on_release: root.runLogin(self)
 
 <UserPage>
     Button:

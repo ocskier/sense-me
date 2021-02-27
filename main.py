@@ -3,7 +3,19 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 
+users = [{
+    "username": "tester",
+    "password": "pwd"
+}]
+
 class LoginPage(Screen):
+    def __init__(self,**kwargs):
+        super(LoginPage, self).__init__(**kwargs)
+
+    def runLogin(self, event):
+        user_inpt = self.ids.userInput.text
+        pass_inpt = self.ids.passInput.text
+        print(user_inpt,pass_inpt)
     pass
 
 class UserPage(Screen):
