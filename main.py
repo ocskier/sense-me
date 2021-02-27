@@ -15,7 +15,12 @@ class LoginPage(Screen):
     def runLogin(self, event):
         user_inpt = self.ids.userInput.text
         pass_inpt = self.ids.passInput.text
-        print(user_inpt,pass_inpt)
+        for user in users:
+            if user["username"] == user_inpt and user["password"] == pass_inpt:
+                print("Logged In")
+                self.parent.current = "user"
+            else: 
+                print("Invalid Credentials!!")
     pass
 
 class UserPage(Screen):
