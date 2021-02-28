@@ -78,3 +78,11 @@ SenseMe:
         id: moodBtn
         text: "Whats your Mood?"
         on_release: root.getMood(self)
+    AnchorLayout:
+        anchor_x: 'right'
+        anchor_y: 'top'
+        Button:
+            id: logoutBtn
+            size_hint: (None, None)
+            text: "Logout"
+            on_release: root.logout(self)
