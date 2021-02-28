@@ -58,9 +58,9 @@ SenseMe:
             size_hint_y: 0
             Label:
                 id: alertLabel
-                color: 0,0,0,1
+                color: hex('#ffffff')
                 size_hint: (.25, None)
-                text: "Password: "
+                text: ""
 
         Button:
             size_hint_y: None
@@ -68,7 +68,13 @@ SenseMe:
             on_release: root.runLogin(self)
 
 <UserPage>
+    canvas:
+        Color:
+            rgba: hex('#FFFFFF')
+        Rectangle:
+            size: self.size
+            pos: self.pos
     Button:
-        text: "App"
-        on_release: getMood(self)
-            
+        id: moodBtn
+        text: "Whats your Mood?"
+        on_release: root.getMood(self)
