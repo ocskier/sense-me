@@ -1,20 +1,80 @@
 #:kivy 1.0.9
+#:import hex kivy.utils.get_color_from_hex
 SenseMe:
     LoginPage:
     UserPage:
 
 <LoginPage>
-    BoxLayout:
-        TextInput:
-            id: login
-        TextInput:
-            id: passw
+    canvas:
+        Color:
+            rgba: hex('#CCFFCC')
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    GridLayout:
+        cols: 1
+        Label:
+            id: appLabel
+            halign: 'center'
+            color: 0,0,0,1
+            padding:[80,30]
+            size_hint_y: None
+            size: self.texture_size
+            text: app.name.capitalize()
+
+        GridLayout:
+            cols:2
+            rows:2
+            padding:[0,30,100,30]
+            Label:
+                id: userLabel
+                color: 0,0,0,1
+                size_hint: (.25, None)
+                text: "Username: "
+
+            TextInput:
+                id: userInput
+                color: 0,0,0,1
+                height: self.minimum_height*2
+                multiline: False
+                size_hint: (.5,None)
+                width: 0.5
+
+            Label:
+                id: passLabel
+                color: 0,0,0,1
+                size_hint: (.25, None)
+                text: "Password: "
+        
+            TextInput:
+                id: passInput
+                color: 0,0,0,1
+                height: self.minimum_height*2
+                multiline: False
+                size_hint: (.5,None)
+                width: 0.5
+        Bubble:
+            id: alert
+            size_hint_y: 0
+            Label:
+                id: alertLabel
+                color: hex('#ffffff')
+                size_hint: (.25, None)
+                text: ""
+
         Button:
+            size_hint_y: None
             text: "go"
-            on_release: app.root.current = 'user'
+            on_release: root.runLogin(self)
 
 <UserPage>
+    canvas:
+        Color:
+            rgba: hex('#FFFFFF')
+        Rectangle:
+            size: self.size
+            pos: self.pos
     Button:
-        text: "back"
-        on_release: app.root.current = 'login'
-            
+        id: moodBtn
+        text: "Whats your Mood?"
+        on_release: root.getMood(self)

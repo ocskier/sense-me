@@ -7,9 +7,14 @@ verify_ssl = true
 
 [packages]
 kivy = "*"
+pytest-watch = "*"
+py-mon = "*"
+colorutils = "*"
 
 [requires]
-python_version = "3.8"
+python_version = "3.8.5"
 
 [scripts]
 start="pipenv run python main.py"
+test="pipenv run ptw"
+watch="pipenv run pymon main.py"
