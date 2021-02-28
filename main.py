@@ -20,7 +20,8 @@ class LoginPage(Screen):
                 print("Logged In")
                 self.parent.current = "user"
             else: 
-                print("Invalid Credentials!!")
+                self.ids.alert.size_hint_y = 0.2
+                self.ids.alert.text = "Invalid Credentials!!"
     pass
 
 class UserPage(Screen):
