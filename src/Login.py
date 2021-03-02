@@ -7,11 +7,15 @@ class LoginPage(Screen):
 
     def changePage(self, event):
         self.ids.alert.size_hint_y = 0
+        self.ids.userInput.text = ""
+        self.ids.passInput.text = ""
         self.parent.current = "sign_up"
     
     def runLogin(self, event):
         user_input = self.ids.userInput.text
         pass_input = self.ids.passInput.text
+        self.ids.userInput.text = ""
+        self.ids.passInput.text = ""
         with open("./db/users.json") as f:
             data = json.load(f)
             if len(data["users"]) == 0:

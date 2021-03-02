@@ -7,11 +7,15 @@ class SignUpPage(Screen):
 
     def changePage(self, event):
         self.ids.alertTwo.size_hint_y = 0
+        self.ids.newUserInput.text = ""
+        self.ids.newPassInput.text = ""
         self.parent.current = "login"
 
     def runRegister(self, event):
         user_input = self.ids.newUserInput.text
         pass_input = self.ids.newPassInput.text
+        self.ids.newUserInput.text = ""
+        self.ids.newPassInput.text = ""
         with open("./db/users.json", "r") as f:
             data = json.load(f)
             if user_input.strip() and pass_input.strip():
