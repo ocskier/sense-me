@@ -9,7 +9,6 @@ verify_ssl = true
 kivy = "*"
 pytest-watch = "*"
 py-mon = "*"
-colorutils = "*"
 requests = "*"
 python-dotenv = "*"
 
