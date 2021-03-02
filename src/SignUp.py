@@ -16,7 +16,6 @@ class SignUpPage(Screen):
             data = json.load(f)
             if user_input.strip() and pass_input.strip():
                 data["users"].append({"username": user_input,"password": pass_input})
-                print(data["users"])
                 with open("./db/users.json", "w") as fw:
                     json.dump(data, fw)
                     print("Sign Up successful!")
