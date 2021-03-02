@@ -9,7 +9,7 @@ class UserPage(Screen):
 
     def getMood(self, event):
         self.ids.moodBtn.background_color = get_color_from_hex(random_web())
-    
+
     def logout(self, event):
         self.parent.current = "login"
     pass

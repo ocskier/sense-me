@@ -55,11 +55,6 @@ SenseMe:
                 multiline: False
                 size_hint: (.5,None)
                 width: 0.5
-        
-        Button:
-            size_hint_y: None
-            text: "Sign Up"
-            on_release: root.parent.current = "sign_up"
 
         Bubble:
             id: alert
@@ -69,6 +64,11 @@ SenseMe:
                 color: hex('#ffffff')
                 size_hint: (.25, None)
                 text: ""
+
+        Button:
+            size_hint_y: None
+            text: "Sign Up"
+            on_release: root.changePage(self)
 
         Button:
             size_hint_y: None
@@ -94,3 +94,79 @@ SenseMe:
             size_hint: (None, None)
             text: "Logout"
             on_release: root.logout(self)
+
+<SignUpPage>
+    canvas:
+        Color:
+            rgba: hex('#CCFFCC')
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    GridLayout:
+        cols: 1
+        Label:
+            id: appLabelTwo
+            halign: 'center'
+            color: 0,0,0,1
+            padding:[80,30]
+            size_hint_y: None
+            size: self.texture_size
+            text: app.name.capitalize()
+
+        GridLayout:
+            cols:2
+            rows:2
+            padding:[0,30,100,30]
+            Label:
+                id: newUserLabel
+                color: 0,0,0,1
+                size_hint: (.25, None)
+                text: "Username: "
+
+            TextInput:
+                id: newUserInput
+                color: 0,0,0,1
+                height: self.minimum_height*2
+                hint_text: "test"
+                multiline: False
+                size_hint: (.5,None)
+                width: 0.5
+
+            Label:
+                id: newPassLabel
+                color: 0,0,0,1
+                hint_text: "test123"
+                size_hint: (.25, None)
+                text: "Password: "
+        
+            TextInput:
+                id: newPassInput
+                color: 0,0,0,1
+                height: self.minimum_height*2
+                multiline: False
+                size_hint: (.5,None)
+                width: 0.5
+
+        Bubble:
+            id: alertTwo
+            size_hint_y: 0
+            Label:
+                id: alertLabelTwo
+                color: hex('#ffffff')
+                size_hint: (.25, None)
+                text: ""
+
+        Button:
+            size_hint_y: None
+            text: "Register"
+            on_release: root.runRegister(self)
+
+    AnchorLayout:
+        anchor_x: 'right'
+        anchor_y: 'top'
+        Button:
+            id: backBtn
+            size_hint: (None, None)
+            text: "Login"
+            on_release: root.changePage(self)
+
