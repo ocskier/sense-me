@@ -2,6 +2,7 @@
 #:import hex kivy.utils.get_color_from_hex
 SenseMe:
     LoginPage:
+    SignUpPage:
     UserPage:
 
 <LoginPage>
@@ -74,26 +75,6 @@ SenseMe:
             size_hint_y: None
             text: "go"
             on_release: root.runLogin(self)
-
-<UserPage>
-    canvas:
-        Color:
-            rgba: hex('#FFFFFF')
-        Rectangle:
-            size: self.size
-            pos: self.pos
-    Button:
-        id: moodBtn
-        text: "Whats your Mood?"
-        on_release: root.getMood(self)
-    AnchorLayout:
-        anchor_x: 'right'
-        anchor_y: 'top'
-        Button:
-            id: logoutBtn
-            size_hint: (None, None)
-            text: "Logout"
-            on_release: root.logout(self)
 
 <SignUpPage>
     canvas:
@@ -169,4 +150,47 @@ SenseMe:
             size_hint: (None, None)
             text: "Login"
             on_release: root.changePage(self)
+
+<UserPage>
+    canvas:
+        Color:
+            rgba: hex('#DDDDDD')
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    FloatLayout:
+        TextInput:
+            id: moodInput
+            color: 0,0,0,1
+            height: self.minimum_height*2
+            hint_text: "Mood"
+            pos_hint: {'x':.25, 'y':.7}
+            multiline: False
+            size_hint: (.5,None)
+            width: 0.5
+        Label:
+            id: moodAlert
+            color: hex('#ffffff')
+            pos_hint: {'x':.25, 'y':.5}
+            size_hint: (.5, None)
+            text: ""
+            text_size: self.width, None
+            height: self.texture_size[1]
+        Button:
+            id: moodBtn
+            text: "Whats your Mood?"
+            color: 0, 0, 0, 1
+            on_release: root.getMood(self)
+            pos_hint: {'x':.25, 'y':.2}
+            size_hint: (.5,None)
+            background_color: 0, 0, 0, 0
+    AnchorLayout:
+        anchor_x: 'right'
+        anchor_y: 'top'
+        Button:
+            id: logoutBtn
+            size_hint: (None, None)
+            text: "Logout"
+            on_release: root.logout(self)
+
 

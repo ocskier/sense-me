@@ -10,6 +10,8 @@ kivy = "*"
 pytest-watch = "*"
 py-mon = "*"
 colorutils = "*"
+requests = "*"
+python-dotenv = "*"
 
 [requires]
 python_version = "3.9"
