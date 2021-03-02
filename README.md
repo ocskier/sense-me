@@ -1,2 +1,2 @@
 # sense-me
-A mobile Python app using Kivy, pipenv, and html
+A mobile app using Kivy, pipenv, and MongoDB written in Python and Kivy
