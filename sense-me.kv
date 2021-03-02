@@ -36,6 +36,7 @@ SenseMe:
                 id: userInput
                 color: 0,0,0,1
                 height: self.minimum_height*2
+                hint_text: "test"
                 multiline: False
                 size_hint: (.5,None)
                 width: 0.5
@@ -43,6 +44,7 @@ SenseMe:
             Label:
                 id: passLabel
                 color: 0,0,0,1
+                hint_text: "test123"
                 size_hint: (.25, None)
                 text: "Password: "
         
@@ -53,6 +55,12 @@ SenseMe:
                 multiline: False
                 size_hint: (.5,None)
                 width: 0.5
+        
+        Button:
+            size_hint_y: None
+            text: "Sign Up"
+            on_release: root.parent.current = "sign_up"
+
         Bubble:
             id: alert
             size_hint_y: 0
