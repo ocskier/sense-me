@@ -1,5 +1,5 @@
 import json, os, random, requests
-
+from requests.exceptions import RequestException
 from kivy.graphics import Color
 from kivy.utils import get_color_from_hex
 from kivy.uix.screenmanager import Screen
@@ -25,9 +25,16 @@ class UserPage(Screen):
                 'x-rapidapi-key': os.getenv("RAPID_API_KEY"),
                 'x-rapidapi-host': "theysaidso.p.rapidapi.com"
                 }
-            response = requests.request("GET", url, headers=headers, params=querystring)
-            quote = json.loads(response.text)["contents"]["quotes"][0]
-            self.ids.moodAlert.text = quote["quote"] + "\n\n" + quote["author"]
+            try:
+                response = requests.request("GET", url, headers=headers, params=querystring)
+                if "contents" in json.loads(response.text):
+                    quote = json.loads(response.text)["contents"]["quotes"][0]
+                    self.ids.moodAlert.text = quote["quote"] + "\n\n" + quote["author"]
+                else: 
+                    self.ids.moodAlert.text = "No quote for that one!"
+            except RequestException:
+                self.ids.moodAlert.text = "No quote for that one!"
+            self.ids.moodInput.text = ""
 
     def logout(self, event):
         self.parent.current = "login"
